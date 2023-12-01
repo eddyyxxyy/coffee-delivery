@@ -2,7 +2,7 @@ import { ComponentProps } from "react";
 import { tv, VariantProps } from "tailwind-variants";
 
 const rootDiv = tv({
-  base: "rounded-md p-2 font-sans-r text-sm md:flex md:items-center",
+  base: "rounded-md p-2 font-sans-r text-sm flex items-center gap-1",
   variants: {
     color: {
       purple: "bg-product-purple",
@@ -15,9 +15,8 @@ const rootDiv = tv({
   },
 });
 
-export type RootProps = VariantProps<typeof rootDiv> &
-  ComponentProps<"button">;
+export type RootProps = VariantProps<typeof rootDiv> & ComponentProps<"div">;
 
-export function Root({ color, ...props }: RootProps) {
-  return <button type="button" {...props} className={rootDiv({ color })} />;
+export function Root({ className, color, ...props }: RootProps) {
+  return <div {...props} className={rootDiv({ color, className })} />;
 }
