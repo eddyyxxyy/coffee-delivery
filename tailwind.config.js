@@ -33,6 +33,14 @@ export default {
         "sans-r": ["Roboto", "sans-serif"],
         "sans-b": ['"Baloo 2"', "sans-serif"],
       },
+      keyframes: {
+        downAndFade: {
+          from: { opacity: 0, transform: "translateX(10rem)" },
+        },
+      },
+      animation: {
+        downAndFade: "downAndFade 0.25s forwards ease-in-out",
+      },
     },
   },
   plugins: [],
