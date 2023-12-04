@@ -3,5 +3,11 @@
   "homeMetaDesc": "Descubra o Coffee Delivery, nossa plataforma fictícia de café! Conheça nossos cafés e se apaixone pela nossa seleção. Experimente comprar café conosco!",
   "changeLang": "Change app's language to english",
   "goToCheckout": "Ir para Meu Carrinho",
-  "toggleDropdown": "Clique aqui para abrir o menu"
+  "toggleDropdown": "Clique aqui para abrir o menu",
+  "homeHeading": "Encontre o café perfeito para qualquer hora do dia",
+  "homeParagraph": "Com o Coffee Delivery você recebe seu café onde estiver, a qualquer hora",
+  "safeToBuy": "Compra simples e segura",
+  "safeToDeliver": "Embalagem mantém o café intacto",
+  "fastToDeliver": "Entrega rápida e rastreada",
+  "freshWhenDelivered": "O café chega fresquinho até você"
 }

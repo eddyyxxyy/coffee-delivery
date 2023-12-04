@@ -1,5 +1,8 @@
+import { Coffee, Package, ShoppingCart, Timer } from "@phosphor-icons/react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
+
+import specialCoffeDisplayHomepage from "../../assets/special-coffe-display-homepage.png";
 
 export function Home() {
   const { t } = useTranslation();
@@ -22,8 +25,38 @@ export function Home() {
         </Helmet>
       </HelmetProvider>
 
-      <main className="flex-grow overflow-y-auto">
-        <h1>Home Page</h1>
+      <main className="flex-grow overflow-y-auto px-6 font-sans-r md:px-8">
+        <div className="mt-8 grid grid-cols-1 items-center justify-center gap-12 md:mt-16 md:grid-cols-2 md:gap-12 lg:mt-24 lg:gap-14">
+          <div className="flex flex-col items-center gap-4 md:items-start">
+            <h1 className="font-sans-b text-3xl font-extrabold leading-[130%] text-base-title md:text-4xl lg:text-5xl">
+              {t("homeHeading")}
+            </h1>
+            <p className="text-xl text-base-subtitle">{t("homeParagraph")}</p>
+            <div className="mt-10 grid grid-cols-2 gap-5 text-base text-base-text">
+              <span className="flex items-center justify-start gap-3">
+                <ShoppingCart size={16} />
+                {t("safeToBuy")}
+              </span>
+              <span className="flex items-center justify-start gap-3">
+                <Package size={16} />
+                {t("safeToDeliver")}
+              </span>
+              <span className="flex items-center justify-start gap-3">
+                <Timer size={16} />
+                {t("fastToDeliver")}
+              </span>
+              <span className="flex items-center justify-start gap-3">
+                <Coffee size={16} />
+                {t("freshWhenDelivered")}
+              </span>
+            </div>
+          </div>
+          <div className="flex items-center justify-center">
+            <div className="max-w-lg">
+              <img src={specialCoffeDisplayHomepage} alt="" />
+            </div>
+          </div>
+        </div>
       </main>
     </>
   );

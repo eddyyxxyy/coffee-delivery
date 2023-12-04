@@ -3,5 +3,11 @@
   "homeMetaDesc": "Discover Coffee Delivery, our fictitious coffee platform! Get to know our coffees and fall in love with our selection. Try buying coffee with us!",
   "changeLang": "Mudar o idioma do aplicativo para português",
   "goToCheckout": "Go to Checkout",
-  "toggleDropdown": "Click here to open the menu"
+  "toggleDropdown": "Click here to open the menu",
+  "homeHeading": "Find the perfect coffee for any time of the day",
+  "homeParagraph": "With Coffee Delivery, you receive your coffee wherever you are, at any time",
+  "safeToBuy": "Safe and simple to purchase",
+  "safeToDeliver": "Our packing keeps the coffee intact",
+  "fastToDeliver": "Fast & tracked delivery",
+  "freshWhenDelivered": "Coffee delivered fresh to you"
 }
