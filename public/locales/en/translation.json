@@ -9,5 +9,10 @@
   "safeToBuy": "Safe and simple to purchase",
   "safeToDeliver": "Our packing keeps the coffee intact",
   "fastToDeliver": "Fast & tracked delivery",
-  "freshWhenDelivered": "Coffee delivered fresh to you"
+  "freshWhenDelivered": "Coffee delivered fresh to you",
+  "coffeeListHeadline": "Our coffees",
+  "traditionalExpressoName": "Traditional Expresso",
+  "traditionalExpressoDesc": "The traditional recipe with hot water and ground coffee beans",
+  "traditionalTag": "Traditional",
+  "currencySymbol": "$"
 }

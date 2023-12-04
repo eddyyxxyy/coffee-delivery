@@ -9,5 +9,10 @@
   "safeToBuy": "Compra simples e segura",
   "safeToDeliver": "Embalagem mantém o café intacto",
   "fastToDeliver": "Entrega rápida e rastreada",
-  "freshWhenDelivered": "O café chega fresquinho até você"
+  "freshWhenDelivered": "O café chega fresquinho até você",
+  "coffeeListHeadline": "Nossos cafés",
+  "traditionalExpressoName": "Expresso Tradicional",
+  "traditionalExpressoDesc": "O tradicional café feito com água quente e grãos moídos",
+  "traditionalTag": "Tradicional",
+  "currencySymbol": "R$"
 }
