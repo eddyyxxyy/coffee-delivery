@@ -33,20 +33,40 @@ export function Home() {
             </h1>
             <p className="text-xl text-base-subtitle">{t("homeParagraph")}</p>
             <div className="mt-10 grid grid-cols-2 gap-5 text-base text-base-text">
-              <span className="flex items-center justify-start gap-3">
-                <ShoppingCart size={16} />
+              <span className="flex items-center justify-start gap-3 text-sm md:text-base">
+                <div className="rounded-full bg-product-yellow-dark p-2">
+                  <ShoppingCart
+                    size={16}
+                    weight="fill"
+                    className="text-base-white"
+                  />
+                </div>
                 {t("safeToBuy")}
               </span>
-              <span className="flex items-center justify-start gap-3">
-                <Package size={16} />
+              <span className="flex items-center justify-start gap-3 text-sm md:text-base">
+                <div className="rounded-full bg-base-text p-2">
+                  <Package
+                    size={16}
+                    weight="fill"
+                    className="text-base-white"
+                  />
+                </div>
                 {t("safeToDeliver")}
               </span>
-              <span className="flex items-center justify-start gap-3">
-                <Timer size={16} />
+              <span className="flex items-center justify-start gap-3 text-sm md:text-base">
+                <div className="rounded-full bg-product-yellow p-2">
+                  <Timer size={16} weight="fill" className="text-base-white" />
+                </div>
                 {t("fastToDeliver")}
               </span>
-              <span className="flex items-center justify-start gap-3">
-                <Coffee size={16} />
+              <span className="flex items-center justify-start gap-3 text-sm md:text-base">
+                <div className="rounded-full bg-product-purple p-2">
+                  <Coffee
+                    size={16}
+                    weight="fill"
+                    className="text-base-white"
+                  />
+                </div>
                 {t("freshWhenDelivered")}
               </span>
             </div>
