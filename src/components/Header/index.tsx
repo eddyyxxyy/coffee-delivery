@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { List, MapPin, ShoppingCart, Translate } from "@phosphor-icons/react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
