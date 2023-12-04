@@ -27,7 +27,7 @@ export function Home() {
         </Helmet>
       </HelmetProvider>
 
-      <main className="flex-grow overflow-y-auto px-6 pb-24 font-sans-r md:px-8">
+      <main className="flex-grow overflow-y-auto px-6 pb-24 font-sans-r md:px-8 lg:px-16">
         <div className="mt-8 grid grid-cols-1 items-center justify-center gap-12 md:mt-16 md:grid-cols-2 md:gap-12 lg:mt-24 lg:gap-14">
           <div className="flex flex-col items-center gap-4 md:items-start">
             <h1 className="font-sans-b text-3xl font-extrabold leading-[130%] text-base-title md:text-4xl lg:text-5xl">
@@ -83,7 +83,34 @@ export function Home() {
           <h2 className="text-center font-sans-b text-[2rem] text-base-subtitle md:text-start">
             {t("coffeeListHeadline")}
           </h2>
-          <ul className="mt-12 flex flex-col items-center justify-center gap-8 md:grid md:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-12 flex flex-col items-center justify-center gap-8 md:grid md:grid-cols-2 lg:grid-cols-4">
+            <li className="flex items-center justify-center">
+              <CoffeeCard
+                imgSrc={expresso}
+                coffeeName={t("traditionalExpressoName")}
+                coffeeDesc={t("traditionalExpressoDesc")}
+                coffeeTag={t("traditionalTag")}
+                coffeePrice={9.99}
+              />
+            </li>
+            <li className="flex items-center justify-center">
+              <CoffeeCard
+                imgSrc={expresso}
+                coffeeName={t("traditionalExpressoName")}
+                coffeeDesc={t("traditionalExpressoDesc")}
+                coffeeTag={t("traditionalTag")}
+                coffeePrice={9.99}
+              />
+            </li>
+            <li className="flex items-center justify-center">
+              <CoffeeCard
+                imgSrc={expresso}
+                coffeeName={t("traditionalExpressoName")}
+                coffeeDesc={t("traditionalExpressoDesc")}
+                coffeeTag={t("traditionalTag")}
+                coffeePrice={9.99}
+              />
+            </li>
             <li className="flex items-center justify-center">
               <CoffeeCard
                 imgSrc={expresso}
