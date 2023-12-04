@@ -90,7 +90,7 @@ export function Header() {
         </div>
       </div>
       {isDropdownVisible && (
-        <nav className="fixed left-0 top-16 z-10 h-screen w-screen animate-downAndFade bg-base-bg md:hidden">
+        <nav className="absolute left-0 top-16 z-10 w-screen animate-downAndFade bg-base-card pb-4 shadow-md md:hidden">
           <div className="flex cursor-default items-center justify-center gap-3 pt-4">
             <IconButton.Root
               color="purpleLight"

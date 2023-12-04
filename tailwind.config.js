@@ -35,7 +35,7 @@ export default {
       },
       keyframes: {
         downAndFade: {
-          from: { opacity: 0, transform: "translateX(10rem)" },
+          from: { opacity: 0, transform: "translateY(-1rem)" },
         },
       },
       animation: {
