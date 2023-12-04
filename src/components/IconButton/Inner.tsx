@@ -6,6 +6,7 @@ const iconVariants = tv({
     iconColor: {
       purple: "text-product-purple",
       yellowDark: "text-product-yellow-dark",
+      white: "text-base-white",
     },
     iconWeight: {
       fill: "fill",
