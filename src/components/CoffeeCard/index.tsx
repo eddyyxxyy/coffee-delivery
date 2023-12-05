@@ -1,7 +1,8 @@
 import { Minus, Plus, ShoppingCart } from "@phosphor-icons/react";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
+import { AppContext } from "../../contexts/AppContext";
 import { convertToDollars } from "../../utils/convertToDollar";
 import { IconButton } from "../IconButton";
 
@@ -21,6 +22,8 @@ export function CoffeeCard({
   coffeeTag,
 }: CoffeeCardProps) {
   const { t, i18n } = useTranslation();
+  const { handleAddToCart } = useContext(AppContext);
+
   const [formatedCoffeePrice, setformatedCoffeePrice] = useState<
     string | null
   >(null);
@@ -76,37 +79,54 @@ export function CoffeeCard({
           </span>
           <div className="flex items-center justify-center gap-2">
             <div className="flex items-center justify-evenly gap-1 rounded-md bg-base-button p-2 text-base">
-              <button type="button">
+              <button
+                type="button"
+                className="group rounded-sm outline-none focus:ring-2 focus:ring-product-purple"
+              >
                 <Minus
                   size={14}
                   weight="bold"
-                  className="text-product-purple"
+                  className="text-product-purple transition-colors group-hover:text-product-purple-dark group-focus:text-product-purple-dark"
                   onClick={handleMinusClick}
                 />
               </button>
               <span className="min-w-[1.25rem]">{productQuantity}</span>
-              <button type="button">
+              <button
+                type="button"
+                className="group rounded-sm outline-none focus:ring-2 focus:ring-product-purple-dark"
+              >
                 <Plus
                   size={14}
                   weight="bold"
-                  className="text-product-purple"
+                  className="text-product-purple transition-colors group-hover:text-product-purple-dark group-focus:text-product-purple-dark"
                   onClick={handlePlusClick}
                 />
               </button>
             </div>
-            <IconButton.Root
-              color="purpleDark"
-              title={t("goToCheckout")}
-              className="relative cursor-pointer"
+            <button
+              type="button"
+              className="group rounded-lg outline-none focus:ring-2 focus:ring-product-purple"
+              onClick={() =>
+                handleAddToCart(
+                  { imgSrc, coffeeName, coffeeTag, coffeeDesc, coffeePrice },
+                  productQuantity,
+                )
+              }
             >
-              <IconButton.Inner
-                icon={ShoppingCart}
-                iconSize={22}
-                iconColor="white"
-                iconWeight="fill"
-                textColor="purpleDark"
-              />
-            </IconButton.Root>
+              <IconButton.Root
+                color="purpleDark"
+                title={t("goToCheckout")}
+                className="relative cursor-pointer transition-colors hover:bg-product-purple group-focus:bg-product-purple"
+              >
+                <IconButton.Inner
+                  icon={ShoppingCart}
+                  iconSize={22}
+                  iconColor="white"
+                  iconWeight="fill"
+                  textColor="purpleDark"
+                />
+              </IconButton.Root>
+            </button>
           </div>
         </div>
       </div>

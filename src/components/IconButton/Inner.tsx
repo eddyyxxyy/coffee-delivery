@@ -49,6 +49,8 @@ export function Inner({
   textColor,
   productsCount,
 }: InnerProps) {
+  productsCount = productsCount ?? 0;
+
   return (
     <>
       <IconProp
@@ -57,7 +59,7 @@ export function Inner({
         className={iconVariants({ iconColor })}
       />
       {text && <span className={textVariants({ textColor })}>{text}</span>}
-      {productsCount && (
+      {productsCount > 0 && (
         <div className="absolute -right-1.5 -top-1.5 flex max-h-5 max-w-[1.5rem] items-center justify-center truncate rounded-full bg-product-yellow-dark px-1 text-xs font-bold text-base-white">
           {productsCount > 99 ? "99+" : productsCount}
         </div>

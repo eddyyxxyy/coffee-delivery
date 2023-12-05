@@ -1,13 +1,16 @@
 import { List, MapPin, ShoppingCart, Translate } from "@phosphor-icons/react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 import Logo from "../../assets/logo.svg";
+import { AppContext } from "../../contexts/AppContext";
 import { IconButton } from "../IconButton";
 
 export function Header() {
   const { t, i18n } = useTranslation();
+  const { quantity } = useContext(AppContext);
+
   const [lang, setLang] = useState<string>(i18n.language);
   const [isDropdownVisible, setIsDropdownVisible] = useState<boolean>(false);
 
@@ -74,6 +77,7 @@ export function Header() {
               iconColor="yellowDark"
               iconWeight="fill"
               textColor="purpleDark"
+              productsCount={quantity}
             />
           </IconButton.Root>
         </Link>
@@ -121,7 +125,7 @@ export function Header() {
                   iconColor="yellowDark"
                   iconWeight="fill"
                   textColor="purpleDark"
-                  productsCount={5}
+                  productsCount={quantity}
                 />
               </IconButton.Root>
             </Link>
