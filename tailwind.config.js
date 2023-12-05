@@ -37,9 +37,16 @@ export default {
         downAndFade: {
           from: { opacity: 0, transform: "translateY(-1rem)" },
         },
+        downFadeAndBack: {
+          "0%": { opacity: 0, transform: "translateX(1rem)" },
+          "10%": { opacity: 1, transform: "translateX(0)" },
+          "90%": { opacity: 1, transform: "translateX(0)" },
+          "100%": { opacity: 0, transform: "translateX(1rem)" },
+        },
       },
       animation: {
         downAndFade: "downAndFade 0.25s forwards ease-in-out",
+        downFadeAndBack: "downFadeAndBack 4s forwards ease-in-out",
       },
     },
   },
