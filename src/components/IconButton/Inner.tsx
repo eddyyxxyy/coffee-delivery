@@ -22,6 +22,7 @@ const iconVariants = tv({
 const textVariants = tv({
   variants: {
     textColor: {
+      base: "text-base-text",
       purple: "text-product-purple",
       purpleLight: "text-product-purple-light",
       purpleDark: "text-product-purple-dark",

@@ -11,12 +11,17 @@ const rootDiv = tv({
       yellow: "bg-product-yellow",
       yellowLight: "bg-product-yellow-light",
       yellowDark: "bg-product-yellow-dark",
+      button: "bg-base-button",
     },
   },
 });
 
-export type RootProps = VariantProps<typeof rootDiv> & ComponentProps<"div">;
+export type RootProps = VariantProps<typeof rootDiv> &
+  ComponentProps<"div"> & { selected: boolean };
 
-export function Root({ className, color, ...props }: RootProps) {
+export function Root({ className, color, selected, ...props }: RootProps) {
+  if (selected) {
+    className += " border border-product-purple bg-product-purple-light";
+  }
   return <div {...props} className={rootDiv({ color, className })} />;
 }
