@@ -20,6 +20,13 @@ i18n
       escapeValue: false,
     },
   })
+  .then(() => {
+    if (typeof window !== "undefined") {
+      i18n.on("languageChanged", function (lang) {
+        document.documentElement.lang = lang;
+      });
+    }
+  })
   .catch((error) => console.error("Failed to initialize i18next:", error));
 
 export default i18n;
