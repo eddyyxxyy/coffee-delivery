@@ -17,7 +17,7 @@ const rootDiv = tv({
 });
 
 export type RootProps = VariantProps<typeof rootDiv> &
-  ComponentProps<"div"> & { selected: boolean };
+  ComponentProps<"div"> & { selected?: boolean };
 
 export function Root({ className, color, selected, ...props }: RootProps) {
   if (selected) {

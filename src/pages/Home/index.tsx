@@ -83,7 +83,7 @@ export function Home() {
           <h2 className="text-center font-sans-b text-[2rem] text-base-subtitle md:text-start">
             {t("coffeeListHeadline")}
           </h2>
-          <ul className="mt-12 flex flex-col items-center justify-center gap-8 md:grid md:grid-cols-2 lg:grid-cols-4">
+          <ul className="mt-12 grid grid-cols-1 items-center justify-center gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             <li className="flex items-center justify-center">
               <CoffeeCard
                 imgSrc={expresso}

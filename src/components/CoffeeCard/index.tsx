@@ -76,7 +76,7 @@ export function CoffeeCard({
   return (
     <>
       {showAddedToCartNotification && <AddedToCartNotification />}
-      <div className="flex max-w-md flex-col items-center justify-center gap-3 rounded-bl-[36px] rounded-br-md rounded-tl-md rounded-tr-[36px] bg-base-card p-6">
+      <div className="flex min-w-[15rem] max-w-full flex-col items-center justify-center gap-3 rounded-bl-[36px] rounded-br-md rounded-tl-md rounded-tr-[36px] bg-base-card p-6">
         <div className="-mt-12 mb-12 h-32 w-32 text-center">
           <img src={imgSrc} alt="" className="h-full w-full" />
           <div className="mt-3 rounded-full bg-product-yellow-light px-2 py-1 text-[0.625rem] font-bold uppercase text-product-yellow-dark">
@@ -88,7 +88,7 @@ export function CoffeeCard({
             {coffeeName}
           </h3>
           <p className="mb-8 mt-2 text-base-label">{coffeeDesc}</p>
-          <div className="flex items-center justify-evenly gap-6">
+          <div className="flex flex-wrap items-center justify-evenly gap-6">
             <span className="font-sans-b text-2xl font-bold text-base-text">
               <span className="font-sans-r text-sm font-normal">
                 {t("currencySymbol")}&nbsp;
