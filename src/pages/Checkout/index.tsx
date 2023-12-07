@@ -13,7 +13,7 @@ import { IconButton } from "../../components/IconButton";
 import { Input } from "../../components/Input";
 
 export function Checkout() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [selectedPaymentType, setSelectedPaymentType] = useState<
     null | "credit" | "debit" | "money"
   >(null);
@@ -37,13 +37,13 @@ export function Checkout() {
         </Helmet>
       </HelmetProvider>
 
-      <main className="flex-grow overflow-y-auto px-6 pb-24 font-sans-r md:px-14 lg:px-36">
-        <form className="lg:grid-cols-checkoutLg mt-8 grid grid-cols-1 gap-4 lg:mt-10 lg:gap-8">
+      <main className="flex-grow overflow-y-auto px-4 pb-24 font-sans-r md:px-14 lg:px-36">
+        <form className="mt-8 grid grid-cols-1 gap-4 lg:mt-10 lg:grid-cols-checkoutLg lg:gap-8">
           <div>
             <h2 className="font-sans-b text-lg font-bold text-base-subtitle">
               Complete seu pedido
             </h2>
-            <div className="mt-4 rounded-md bg-base-card p-10">
+            <div className="mt-4 rounded-md bg-base-card p-6 md:p-10">
               <fieldset>
                 <legend className="flex items-start gap-2">
                   <MapPinLine
@@ -58,56 +58,56 @@ export function Checkout() {
                   </p>
                 </legend>
                 <div className="mt-8 flex flex-col gap-4">
+                  <div className="md:w-[35%]">
+                    <Input
+                      placeholder="CEP"
+                      type="number"
+                      min={i18n.language === "en" ? 5 : 8}
+                      max={i18n.language === "en" ? 9 : 8}
+                      required
+                    />
+                  </div>
                   <Input
-                    wrapperClassName="rounded-md focus-within:ring-2 focus-within:ring-product-yellow-dark flex items-center p-3 text-base-label text-sm bg-base-input border border-base-button"
-                    className="flex-1 bg-base-input outline-none"
-                    type="number"
-                    placeholder="CEP"
-                    required
-                  />
-                  <Input
-                    wrapperClassName="rounded-md focus-within:ring-2 focus-within:ring-product-yellow-dark flex items-center p-3 text-base-label text-sm bg-base-input border border-base-button"
-                    className="flex-1 bg-base-input outline-none"
-                    type="text"
                     placeholder="Rua"
-                    required
-                  />
-                  <Input
-                    wrapperClassName="rounded-md focus-within:ring-2 focus-within:ring-product-yellow-dark flex items-center p-3 text-base-label text-sm bg-base-input border border-base-button"
-                    className="flex-1 bg-base-input outline-none"
-                    type="number"
-                    placeholder="Número"
-                    required
-                  />
-                  <Input
-                    wrapperClassName="rounded-md focus-within:ring-2 focus-within:ring-product-yellow-dark flex flex-1 items-center p-3 text-base-label text-sm bg-base-input border border-base-button"
-                    className="flex-1 bg-base-input outline-none"
                     type="text"
-                    placeholder="Complemento"
-                    required
-                    optionalText="Opcional"
-                  />
-                  <Input
-                    wrapperClassName="rounded-md focus-within:ring-2 focus-within:ring-product-yellow-dark flex flex-1 items-center p-3 text-base-label text-sm bg-base-input border border-base-button"
-                    className="flex-1 bg-base-input outline-none"
-                    type="text"
-                    placeholder="Bairro"
+                    minLength={5}
                     required
                   />
-                  <Input
-                    wrapperClassName="rounded-md focus-within:ring-2 focus-within:ring-product-yellow-dark flex flex-1 items-center p-3 text-base-label text-sm bg-base-input border border-base-button"
-                    className="flex-1 bg-base-input outline-none"
-                    type="text"
-                    placeholder="Cidade"
-                    required
-                  />
-                  <Input
-                    wrapperClassName="rounded-md focus-within:ring-2 focus-within:ring-product-yellow-dark flex flex-1 items-center p-3 text-base-label text-sm bg-base-input border border-base-button"
-                    className="flex-1 bg-base-input outline-none"
-                    type="text"
-                    placeholder="UF"
-                    required
-                  />
+                  <div className="flex flex-col items-center gap-3 md:flex-row">
+                    <div className="w-full md:w-[56%]">
+                      <Input
+                        placeholder="Número"
+                        type="number"
+                        min={0}
+                        required
+                      />
+                    </div>
+                    <div className="w-full">
+                      <Input
+                        placeholder="Complemento"
+                        type="text"
+                        optionalText="Opcional"
+                      />
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-center gap-3 md:flex-row">
+                    <div className="w-full md:w-[56%]">
+                      <Input placeholder="Bairro" type="text" required />
+                    </div>
+                    <div className="flex w-full flex-col items-center gap-3 md:flex-row">
+                      <div className="w-full md:w-[80%]">
+                        <Input placeholder="Cidade" type="text" required />
+                      </div>
+                      <div className="w-full md:w-[20%]">
+                        <Input
+                          placeholder="UF"
+                          type="text"
+                          maxLength={2}
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </fieldset>
             </div>
