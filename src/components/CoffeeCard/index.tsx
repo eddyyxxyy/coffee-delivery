@@ -12,7 +12,7 @@ export interface CoffeeCardProps {
   coffeeName: string;
   coffeeDesc: string;
   coffeePrice: number;
-  coffeeTag: string;
+  coffeeTags: string[];
 }
 
 export function CoffeeCard({
@@ -20,7 +20,7 @@ export function CoffeeCard({
   coffeeName,
   coffeeDesc,
   coffeePrice,
-  coffeeTag,
+  coffeeTags,
 }: CoffeeCardProps) {
   const { t, i18n } = useTranslation();
   const { handleAddToCart } = useContext(AppContext);
@@ -48,7 +48,7 @@ export function CoffeeCard({
 
   function handleAddedToCartWithNotification() {
     handleAddToCart(
-      { imgSrc, coffeeName, coffeeTag, coffeeDesc, coffeePrice },
+      { imgSrc, coffeeName, coffeeTags, coffeeDesc, coffeePrice },
       productQuantity,
     );
     if (showAddedToCartNotification === false) {
@@ -76,11 +76,20 @@ export function CoffeeCard({
   return (
     <>
       {showAddedToCartNotification && <AddedToCartNotification />}
-      <div className="flex min-w-[15rem] max-w-full flex-col items-center justify-center gap-3 rounded-bl-[36px] rounded-br-md rounded-tl-md rounded-tr-[36px] bg-base-card p-6">
-        <div className="-mt-12 mb-12 h-32 w-32 text-center">
-          <img src={imgSrc} alt="" className="h-full w-full" />
-          <div className="mt-3 rounded-full bg-product-yellow-light px-2 py-1 text-[0.625rem] font-bold uppercase text-product-yellow-dark">
-            <span>{coffeeTag}</span>
+      <div className="flex h-full w-full min-w-[15rem] flex-col items-center justify-center gap-3 rounded-bl-[36px] rounded-br-md rounded-tl-md rounded-tr-[36px] bg-base-card p-6">
+        <div className="-mt-12 flex w-full flex-col items-center text-center ">
+          <div className="h-32 w-32">
+            <img src={imgSrc} alt="" className="h-full w-full" />
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-1">
+            {coffeeTags.map((coffeeTag, index) => (
+              <div
+                key={index}
+                className="mt-3 w-fit items-center justify-center rounded-full bg-product-yellow-light px-2 py-1 text-[0.625rem] font-bold uppercase text-product-yellow-dark"
+              >
+                <span>{coffeeTag}</span>
+              </div>
+            ))}
           </div>
         </div>
         <div className="text-center">
