@@ -99,6 +99,7 @@ export function Home() {
           <ul className="mt-12 grid grid-cols-1 items-center justify-center gap-x-8 gap-y-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             <li className="flex items-center justify-center">
               <CoffeeCard
+                id="traditionalExpresso"
                 imgSrc={expresso}
                 coffeeName={t("traditionalExpressoName")}
                 coffeeDesc={t("traditionalExpressoDesc")}
@@ -108,6 +109,7 @@ export function Home() {
             </li>
             <li className="flex items-center justify-center">
               <CoffeeCard
+                id="americanExpresso"
                 imgSrc={expressoAmericano}
                 coffeeName={t("americanExpressoName")}
                 coffeeDesc={t("americanExpressoDesc")}
@@ -117,6 +119,7 @@ export function Home() {
             </li>
             <li className="flex items-center justify-center">
               <CoffeeCard
+                id="creamyExpresso"
                 imgSrc={expressoCremoso}
                 coffeeName={t("creamyExpressoName")}
                 coffeeDesc={t("creamyExpressoDesc")}
@@ -126,6 +129,7 @@ export function Home() {
             </li>
             <li className="flex items-center justify-center">
               <CoffeeCard
+                id="coldExpresso"
                 imgSrc={expressoGelado}
                 coffeeName={t("coldExpressoName")}
                 coffeeDesc={t("coldExpressoDesc")}
@@ -135,6 +139,7 @@ export function Home() {
             </li>
             <li className="flex items-center justify-center">
               <CoffeeCard
+                id="coffeeAndMilk"
                 imgSrc={cafeComLeite}
                 coffeeName={t("coffeeAndMilkName")}
                 coffeeDesc={t("coffeeAndMilkDesc")}
@@ -144,6 +149,7 @@ export function Home() {
             </li>
             <li className="flex items-center justify-center">
               <CoffeeCard
+                id="latte"
                 imgSrc={latte}
                 coffeeName={t("latteName")}
                 coffeeDesc={t("latteDesc")}
@@ -153,6 +159,7 @@ export function Home() {
             </li>
             <li className="flex items-center justify-center">
               <CoffeeCard
+                id="capuccino"
                 imgSrc={capuccino}
                 coffeeName={t("capuccinoName")}
                 coffeeDesc={t("capuccinoDesc")}
@@ -162,6 +169,7 @@ export function Home() {
             </li>
             <li className="flex items-center justify-center">
               <CoffeeCard
+                id="macchiato"
                 imgSrc={macchiato}
                 coffeeName={t("macchiatoName")}
                 coffeeDesc={t("macchiatoDesc")}
@@ -171,6 +179,7 @@ export function Home() {
             </li>
             <li className="flex items-center justify-center">
               <CoffeeCard
+                id="mochaccino"
                 imgSrc={mochaccino}
                 coffeeName={t("mochaccinoName")}
                 coffeeDesc={t("mochaccinoDesc")}
@@ -180,6 +189,7 @@ export function Home() {
             </li>
             <li className="flex items-center justify-center">
               <CoffeeCard
+                id="hotChocolate"
                 imgSrc={hotChocolate}
                 coffeeName={t("hotChocolateName")}
                 coffeeDesc={t("hotChocolateDesc")}
@@ -189,6 +199,7 @@ export function Home() {
             </li>
             <li className="flex items-center justify-center">
               <CoffeeCard
+                id="cuban"
                 imgSrc={cubano}
                 coffeeName={t("cubanName")}
                 coffeeDesc={t("cubanDesc")}
@@ -198,6 +209,7 @@ export function Home() {
             </li>
             <li className="flex items-center justify-center">
               <CoffeeCard
+                id="hawaiian"
                 imgSrc={havaiano}
                 coffeeName={t("hawaiianName")}
                 coffeeDesc={t("hawaiianDesc")}
@@ -207,6 +219,7 @@ export function Home() {
             </li>
             <li className="flex items-center justify-center">
               <CoffeeCard
+                id="arab"
                 imgSrc={arabe}
                 coffeeName={t("arabName")}
                 coffeeDesc={t("arabDesc")}
@@ -216,6 +229,7 @@ export function Home() {
             </li>
             <li className="flex items-center justify-center">
               <CoffeeCard
+                id="irish"
                 imgSrc={irlandes}
                 coffeeName={t("irishName")}
                 coffeeDesc={t("irishDesc")}

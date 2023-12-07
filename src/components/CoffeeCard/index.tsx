@@ -8,6 +8,7 @@ import { AddedToCartNotification } from "../AddedToCartNotification";
 import { IconButton } from "../IconButton";
 
 export interface CoffeeCardProps {
+  id: string;
   imgSrc: string;
   coffeeName: string;
   coffeeDesc: string;
@@ -16,6 +17,7 @@ export interface CoffeeCardProps {
 }
 
 export function CoffeeCard({
+  id,
   imgSrc,
   coffeeName,
   coffeeDesc,
@@ -48,7 +50,7 @@ export function CoffeeCard({
 
   function handleAddedToCartWithNotification() {
     handleAddToCart(
-      { imgSrc, coffeeName, coffeeTags, coffeeDesc, coffeePrice },
+      { id, imgSrc, coffeeName, coffeeTags, coffeeDesc, coffeePrice },
       productQuantity,
     );
     if (showAddedToCartNotification === false) {
