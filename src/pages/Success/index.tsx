@@ -1,3 +1,9 @@
+import { useContext } from "react";
+
+import { AppContext } from "../../contexts/AppContext";
+
 export function Success() {
-  return <h1>Success Page</h1>;
+  const { orderInfo } = useContext(AppContext);
+
+  return <h1>{JSON.stringify(orderInfo)}</h1>;
 }

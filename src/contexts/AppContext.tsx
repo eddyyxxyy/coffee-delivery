@@ -1,15 +1,32 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
+import { createContext, ReactNode, useState } from "react";
 
 import { CoffeeCardProps } from "../components/CoffeeCard";
 
 interface IAppContextData {
-  checkoutProducts: Map<string, number>;
+  checkoutProducts: Map<
+    string,
+    { quantity: number; imageUrl: string; value: number }
+  >;
   quantity: number;
+  orderInfo: IOrderInfo | null;
   handleAddToCart: (product: CoffeeCardProps, quantity: number) => void;
+  updateProductQuantity: (productId: string, newQuantity: number) => void;
+  handleConfirmOrder: (orderInfo: IOrderInfo) => void;
 }
 
 interface IAppContextProviderProps {
   children: ReactNode;
+}
+
+interface IOrderInfo {
+  address: {
+    street: string;
+    number: string;
+    neighborhood: string;
+    city: string;
+    state: string;
+  };
+  paymentType: string;
 }
 
 export const AppContext = createContext<IAppContextData>(
@@ -18,7 +35,7 @@ export const AppContext = createContext<IAppContextData>(
 
 export function AppContextProvider({ children }: IAppContextProviderProps) {
   const [checkoutProducts, setCheckoutProducts] = useState<
-    Map<string, number>
+    Map<string, { quantity: number; imageUrl: string; value: number }>
   >(() => {
     const productsFromStorageJSON = localStorage.getItem(
       "@coffee-delivery:selectedProducts",
@@ -26,7 +43,10 @@ export function AppContextProvider({ children }: IAppContextProviderProps) {
 
     if (productsFromStorageJSON !== null) {
       const parsedProductsFromStorage = new Map(
-        JSON.parse(productsFromStorageJSON) as Map<string, number>,
+        JSON.parse(productsFromStorageJSON) as Map<
+          string,
+          { quantity: number; imageUrl: string; value: number }
+        >,
       );
 
       return parsedProductsFromStorage;
@@ -35,14 +55,20 @@ export function AppContextProvider({ children }: IAppContextProviderProps) {
     return new Map();
   });
 
+  const [orderInfo, setOrderInfo] = useState<null | IOrderInfo>(null);
+
   function handleAddToCart(product: CoffeeCardProps, quantity: number): void {
     setCheckoutProducts((prevCheckoutProducts) => {
       const newCheckoutProducts = new Map(prevCheckoutProducts);
 
-      const currentQuantity =
-        (newCheckoutProducts.get(product.id) ?? 0) + quantity;
+      const currentProduct = newCheckoutProducts.get(product.id);
+      const currentQuantity = (currentProduct?.quantity ?? 0) + quantity;
 
-      newCheckoutProducts.set(product.id, currentQuantity);
+      newCheckoutProducts.set(product.id, {
+        quantity: currentQuantity,
+        imageUrl: product.imgSrc,
+        value: product.coffeePrice,
+      });
 
       localStorage.setItem(
         "@coffee-delivery:selectedProducts",
@@ -53,29 +79,50 @@ export function AppContextProvider({ children }: IAppContextProviderProps) {
     });
   }
 
-  useEffect(() => {
-    const productsFromStorageJSON = localStorage.getItem(
-      "@coffee-delivery:selectedProducts",
-    );
+  function handleConfirmOrder(orderInfo: IOrderInfo) {
+    setOrderInfo(orderInfo);
+    setCheckoutProducts(new Map());
+    localStorage.removeItem("@coffee-delivery:selectedProducts");
+  }
 
-    if (productsFromStorageJSON !== null) {
-      const parsedProductsFromStorage = new Map(
-        JSON.parse(productsFromStorageJSON) as Map<string, number>,
+  function updateProductQuantity(
+    productId: string,
+    newQuantity: number,
+  ): void {
+    setCheckoutProducts((prevCheckoutProducts) => {
+      const newCheckoutProducts = new Map(prevCheckoutProducts);
+
+      if (newQuantity <= 0) {
+        newCheckoutProducts.delete(productId);
+      } else {
+        const updatedProduct = newCheckoutProducts.get(productId);
+        if (updatedProduct) {
+          updatedProduct.quantity = newQuantity;
+          newCheckoutProducts.set(productId, updatedProduct);
+        }
+      }
+
+      localStorage.setItem(
+        "@coffee-delivery:selectedProducts",
+        JSON.stringify(Array.from(newCheckoutProducts.entries())),
       );
 
-      setCheckoutProducts(parsedProductsFromStorage);
-    }
-  }, []);
+      return newCheckoutProducts;
+    });
+  }
 
   return (
     <AppContext.Provider
       value={{
         checkoutProducts,
         quantity: Array.from(checkoutProducts.values()).reduce(
-          (acc, quantity) => acc + quantity,
+          (acc, product) => acc + product.quantity,
           0,
         ),
+        orderInfo,
         handleAddToCart,
+        updateProductQuantity,
+        handleConfirmOrder,
       }}
     >
       {children}
