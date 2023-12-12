@@ -30,12 +30,16 @@ export function Success() {
 
       <main className="flex-grow overflow-y-auto px-4 pb-24 font-sans-r md:px-14 lg:px-36">
         <div className="px-4 pt-7 md:pt-14 lg:pt-20">
-          <h1 className="font-sans-b text-2xl font-extrabold text-product-yellow-dark md:text-3xl lg:text-[2rem]">
-            {t("orderConfirmedWithSuccess")}
-          </h1>
-          <p className="mb-10 mt-1 text-base text-base-subtitle md:text-xl">
-            {t("orderConfirmedWithSuccessSubtitle")}
-          </p>
+          <div className="lg:grid lg:grid-cols-2 lg:gap-x-24">
+            <div>
+              <h1 className="font-sans-b text-2xl font-extrabold text-product-yellow-dark md:text-3xl lg:text-[2rem]">
+                {t("orderConfirmedWithSuccess")}
+              </h1>
+              <p className="mb-10 mt-1 text-base text-base-subtitle md:text-xl">
+                {t("orderConfirmedWithSuccessSubtitle")}
+              </p>
+            </div>
+          </div>
           <div className="grid grid-cols-1 gap-y-9 md:gap-y-16 lg:grid lg:grid-cols-2 lg:gap-x-24">
             <div className="grid grid-rows-3 gap-y-8">
               <div className="flex items-center gap-3"></div>
