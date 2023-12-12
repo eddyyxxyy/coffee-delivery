@@ -66,5 +66,9 @@
   "cashPaymentType": "Dinheiro",
   "totalOfItems": "Total de itens",
   "shippingTotal": "Entrega",
-  "confirmOrder": "Confirmar pedido"
+  "confirmOrder": "Confirmar pedido",
+  "noProductsInCheckout": "Não foi selecionado nenhum café",
+  "fillAllFieldsToConfirm": "Você precisa completar todos os campos para confirmar seu pedido",
+  "orderConfirmedWithSuccess": "Uhu! Pedido confirmado",
+  "orderConfirmedWithSuccessSubtitle": "Agora é só aguardar que logo o café chegará até você"
 }
