@@ -70,5 +70,11 @@
   "noProductsInCheckout": "Não foi selecionado nenhum café",
   "fillAllFieldsToConfirm": "Você precisa completar todos os campos para confirmar seu pedido",
   "orderConfirmedWithSuccess": "Uhu! Pedido confirmado",
-  "orderConfirmedWithSuccessSubtitle": "Agora é só aguardar que logo o café chegará até você"
+  "orderConfirmedWithSuccessSubtitle": "Agora é só aguardar que logo o café chegará até você",
+  "creditPaymentSuccessMessage": "Cartão de crédito",
+  "debitPaymentSuccessMessage": "Cartão de débito",
+  "cashPaymentSuccessMessage": "Em dinheiro",
+  "shippingIn": "Entrega em",
+  "estimatedWait": "Previsão de entrega",
+  "paymentOnDeliverySuccessPage": "Pagamento na entrega"
 }
