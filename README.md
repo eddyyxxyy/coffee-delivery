@@ -12,11 +12,45 @@ Coffee Delivery é uma aplicação web para gerenciar um carrinho de compras de 
 
 ### Desktop:
 
-_Disponiveis após o deploy_.
+#### Home:
+
+![](./previews/home-desktop-preview-1-pt.png)
+
+#### Checkout:
+
+![](./previews/checkout-desktop-preview-1-pt.png)
+
+#### Success:
+
+![](./previews/success-desktop-1-pt.png)
+
+### Tablet:
+
+#### Home:
+
+![](./previews/home-tablet-preview-1-pt.png)
+
+#### Checkout:
+
+![](./previews/checkout-tablet-preview-1-pt.png)
+
+#### Success:
+
+![](./previews/success-tablet-1-pt.png)
 
 ### Mobile:
 
-_Disponíveis após o deploy_.
+#### Home:
+
+![](./previews/home-mobile-preview-1-pt.png)
+
+#### Checkout:
+
+![](./previews/checkout-mobile-preview-1-pt.png)
+
+#### Success:
+
+![](./previews/success-mobile-1-pt.png)
 
 ## Uso
 
@@ -35,16 +69,17 @@ O foco aqui é o aprendizado no uso da Context API do React e dos conceitos de i
 - React;
 - React Router Dom;
 - Tailwind CSS;
+- tailwind-variants;
 - TypeScript;
 - react-i18next;
 - i18next;
-- i18next-http-backend;
-- i18next-browser-languagedetector;
+- react-helmet-async;
 - Commitlint;
 - Husky;
 - Prettier;
 - ESLint;
 - Vite;
+- @phosphor-icons/react;
 
 Além de configuração personalizadas para o ESLint e o plugins utilizados na checagem e formatação do código.
 
