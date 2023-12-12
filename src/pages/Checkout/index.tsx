@@ -104,6 +104,7 @@ export function Checkout() {
                     <Input
                       placeholder={t("zipCode")}
                       type="number"
+                      disabled={!products.length}
                       minLength={i18n.language === "en" ? 5 : 8}
                       maxLength={i18n.language === "en" ? 9 : 8}
                       required
@@ -114,6 +115,7 @@ export function Checkout() {
                     type="text"
                     minLength={5}
                     required
+                    disabled={!products.length}
                     onChange={(e) => setStreet(e.target.value)}
                   />
                   <div className="flex flex-col items-center gap-3 md:flex-row">
@@ -123,6 +125,7 @@ export function Checkout() {
                         type="number"
                         min={0}
                         required
+                        disabled={!products.length}
                         onChange={(e) => setNumber(e.target.value)}
                       />
                     </div>
@@ -130,6 +133,7 @@ export function Checkout() {
                       <Input
                         placeholder={t("addressComplement")}
                         type="text"
+                        disabled={!products.length}
                         optionalText={t("optionalFieldText")}
                       />
                     </div>
@@ -140,6 +144,7 @@ export function Checkout() {
                         placeholder={t("neighbourhood")}
                         type="text"
                         required
+                        disabled={!products.length}
                         onChange={(e) => setNeighborhood(e.target.value)}
                       />
                     </div>
@@ -149,6 +154,7 @@ export function Checkout() {
                           placeholder={t("city")}
                           type="text"
                           required
+                          disabled={!products.length}
                           onChange={(e) => setCity(e.target.value)}
                         />
                       </div>
@@ -158,6 +164,7 @@ export function Checkout() {
                           type="text"
                           maxLength={2}
                           required
+                          disabled={!products.length}
                           onChange={(e) => setState(e.target.value)}
                         />
                       </div>
@@ -185,6 +192,7 @@ export function Checkout() {
                     type="button"
                     className="group max-w-[14rem] flex-grow outline-none"
                     onClick={() => setSelectedPaymentType("credit")}
+                    disabled={!products.length}
                   >
                     <IconButton.Root
                       color="button"
@@ -205,6 +213,7 @@ export function Checkout() {
                     type="button"
                     className="group max-w-[14rem] flex-grow outline-none"
                     onClick={() => setSelectedPaymentType("debit")}
+                    disabled={!products.length}
                   >
                     <IconButton.Root
                       color="button"
@@ -225,6 +234,7 @@ export function Checkout() {
                     type="button"
                     className="group max-w-[14rem] flex-grow outline-none"
                     onClick={() => setSelectedPaymentType("money")}
+                    disabled={!products.length}
                   >
                     <IconButton.Root
                       color="button"
@@ -302,6 +312,11 @@ export function Checkout() {
                       if (selectedPaymentType === null) {
                         alert(t("selectPaymentType"));
                         event.preventDefault();
+                      } else if (
+                        !(city && neighborhood && number && state && street)
+                      ) {
+                        alert(t("fillAllFieldsToConfirm"));
+                        event.preventDefault();
                       } else {
                         handleConfirmOrder({
                           address: {
@@ -320,7 +335,7 @@ export function Checkout() {
                   </Link>
                 </>
               ) : (
-                <h3>Adicione produtos</h3>
+                <h3>{t("noProductsInCheckout")}</h3>
               )}
             </div>
           </div>
