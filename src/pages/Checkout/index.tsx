@@ -20,7 +20,7 @@ export function Checkout() {
   const { t, i18n } = useTranslation();
   const { checkoutProducts, handleConfirmOrder } = useContext(AppContext);
   const [selectedPaymentType, setSelectedPaymentType] = useState<
-    null | "credit" | "debit" | "money"
+    null | "credit" | "debit" | "cash"
   >(null);
   const [formatedCoffeePrice, setformatedCoffeePrice] = useState<
     string | null
@@ -233,13 +233,13 @@ export function Checkout() {
                   <button
                     type="button"
                     className="group max-w-[14rem] flex-grow outline-none"
-                    onClick={() => setSelectedPaymentType("money")}
+                    onClick={() => setSelectedPaymentType("cash")}
                     disabled={!products.length}
                   >
                     <IconButton.Root
                       color="button"
                       className="items-center justify-center gap-3 p-4 uppercase transition-all group-hover:bg-base-hover group-hover:text-base-subtitle group-focus:ring-2 group-focus:ring-product-purple"
-                      selected={selectedPaymentType === "money"}
+                      selected={selectedPaymentType === "cash"}
                     >
                       <IconButton.Inner
                         icon={Money}
@@ -279,7 +279,7 @@ export function Checkout() {
                       <span>
                         {t("currencySymbol")}{" "}
                         {i18n.language === "pt"
-                          ? `${total}`.replace(".", ",")
+                          ? `${total.toFixed(2)}`.replace(".", ",")
                           : formatedCoffeePrice}
                       </span>
                     </p>
@@ -297,7 +297,9 @@ export function Checkout() {
                       <span>
                         {t("currencySymbol")}{" "}
                         {i18n.language === "pt"
-                          ? `${total + 3.5}`.replace(".", ",").padEnd(4, "0")
+                          ? `${(total + 3.5).toFixed(2)}`
+                              .replace(".", ",")
+                              .padEnd(4, "0")
                           : `${Number(formatedCoffeePrice) + 3.5}`.padEnd(
                               4,
                               "0",

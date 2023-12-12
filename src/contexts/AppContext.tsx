@@ -26,7 +26,7 @@ interface IOrderInfo {
     city: string;
     state: string;
   };
-  paymentType: string;
+  paymentType: "credit" | "debit" | "cash";
 }
 
 export const AppContext = createContext<IAppContextData>(
