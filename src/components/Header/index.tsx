@@ -32,65 +32,67 @@ export function Header() {
 
   return (
     <header className="z-20 flex h-16 max-h-24 items-center justify-between border border-purple-100 p-4 shadow-md md:h-20 md:px-24 md:py-4 lg:h-28 lg:px-40 lg:py-8">
-      <Link
-        to="/"
-        onClick={handleLinkRedirect}
-        className="flex h-10 items-center rounded-lg p-1 outline-none hover:ring-2 hover:ring-product-purple focus:ring-2 focus:ring-product-purple md:h-12"
-      >
-        <img src={Logo} className="h-8 md:h-10" alt="Coffee Delivery logo" />
-      </Link>
-      <button
-        type="button"
-        title={t("toggleDropdown")}
-        onClick={toggleDropdown}
-        className="rounded-md outline-none transition-all hover:rotate-90 hover:bg-product-purple-light hover:text-product-purple focus:rotate-90 focus:bg-product-purple-light focus:text-product-purple focus:ring-2 focus:ring-product-purple md:hidden lg:hidden"
-      >
-        <List size={32} />
-      </button>
-      <div className="hidden md:flex md:items-center md:gap-3">
-        <IconButton.Root
-          color="purpleLight"
-          className="cursor-default outline-none"
-        >
-          <IconButton.Inner
-            icon={MapPin}
-            iconSize={22}
-            iconColor="purple"
-            iconWeight="fill"
-            text="Porto Alegre, RS"
-            textColor="purpleDark"
-          />
-        </IconButton.Root>
+      <div className="mx-auto flex w-full max-w-screen-xl items-center justify-between">
         <Link
-          to="/checkout"
+          to="/"
           onClick={handleLinkRedirect}
-          className="cursor-pointer rounded-md outline-none transition-all hover:ring-2 hover:ring-product-yellow focus:ring-2 focus:ring-product-yellow"
+          className="flex h-10 items-center rounded-lg p-1 outline-none hover:ring-2 hover:ring-product-purple focus:ring-2 focus:ring-product-purple md:h-12"
         >
+          <img src={Logo} className="h-8 md:h-10" alt="Coffee Delivery logo" />
+        </Link>
+        <button
+          type="button"
+          title={t("toggleDropdown")}
+          onClick={toggleDropdown}
+          className="rounded-md outline-none transition-all hover:rotate-90 hover:bg-product-purple-light hover:text-product-purple focus:rotate-90 focus:bg-product-purple-light focus:text-product-purple focus:ring-2 focus:ring-product-purple md:hidden lg:hidden"
+        >
+          <List size={32} />
+        </button>
+        <div className="hidden md:flex md:items-center md:gap-3">
           <IconButton.Root
-            color="yellowLight"
-            className="relative cursor-pointer"
-            title={t("goToCheckout")}
+            color="purpleLight"
+            className="cursor-default outline-none"
           >
             <IconButton.Inner
-              icon={ShoppingCart}
+              icon={MapPin}
               iconSize={22}
-              iconColor="yellowDark"
+              iconColor="purple"
               iconWeight="fill"
+              text="Porto Alegre, RS"
               textColor="purpleDark"
-              productsCount={quantity}
             />
           </IconButton.Root>
-        </Link>
-        <div>
-          <button
-            type="button"
-            onClick={changeLanguage}
-            title={t("changeLang")}
-            className="flex gap-1 rounded-lg p-1 font-sans-b text-base uppercase text-zinc-800 outline-none transition-all hover:bg-zinc-200 hover:ring-2 hover:ring-zinc-800 focus:bg-zinc-200 focus:ring-2 focus:ring-zinc-800"
+          <Link
+            to="/checkout"
+            onClick={handleLinkRedirect}
+            className="cursor-pointer rounded-md outline-none transition-all hover:ring-2 hover:ring-product-yellow focus:ring-2 focus:ring-product-yellow"
           >
-            {lang === "pt" ? "pt" : "en"}
-            <Translate size={22} />
-          </button>
+            <IconButton.Root
+              color="yellowLight"
+              className="relative cursor-pointer"
+              title={t("goToCheckout")}
+            >
+              <IconButton.Inner
+                icon={ShoppingCart}
+                iconSize={22}
+                iconColor="yellowDark"
+                iconWeight="fill"
+                textColor="purpleDark"
+                productsCount={quantity}
+              />
+            </IconButton.Root>
+          </Link>
+          <div>
+            <button
+              type="button"
+              onClick={changeLanguage}
+              title={t("changeLang")}
+              className="flex gap-1 rounded-lg p-1 font-sans-b text-base uppercase text-zinc-800 outline-none transition-all hover:bg-zinc-200 hover:ring-2 hover:ring-zinc-800 focus:bg-zinc-200 focus:ring-2 focus:ring-zinc-800"
+            >
+              {lang === "pt" ? "pt" : "en"}
+              <Translate size={22} />
+            </button>
+          </div>
         </div>
       </div>
       {isDropdownVisible && (
