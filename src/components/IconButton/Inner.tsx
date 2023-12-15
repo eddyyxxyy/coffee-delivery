@@ -33,7 +33,7 @@ const textVariants = tv({
   },
 });
 
-export type InnerProps = {
+export type TInnerProps = {
   icon: Icon;
   iconSize: number;
   text?: string | undefined;
@@ -49,7 +49,7 @@ export function Inner({
   text,
   textColor,
   productsCount,
-}: InnerProps) {
+}: TInnerProps) {
   productsCount = productsCount ?? 0;
 
   return (

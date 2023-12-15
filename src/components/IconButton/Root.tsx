@@ -16,10 +16,10 @@ const rootDiv = tv({
   },
 });
 
-export type RootProps = VariantProps<typeof rootDiv> &
+export type TRootProps = VariantProps<typeof rootDiv> &
   ComponentProps<"div"> & { selected?: boolean };
 
-export function Root({ className, color, selected, ...props }: RootProps) {
+export function Root({ className, color, selected, ...props }: TRootProps) {
   if (selected) {
     className += " border border-product-purple bg-product-purple-light";
   }

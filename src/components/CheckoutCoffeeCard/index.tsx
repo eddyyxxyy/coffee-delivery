@@ -6,7 +6,7 @@ import { AppContext } from "../../contexts/AppContext";
 import { convertToDollars } from "../../utils/convertToDollar";
 import { IconButton } from "../IconButton";
 
-export interface CheckoutCoffeeCardProps {
+export interface ICheckoutCoffeeCardProps {
   productNameId: string;
   imgUrl: string;
   price: number;
@@ -16,11 +16,11 @@ export function CheckoutCoffeeCard({
   productNameId,
   imgUrl,
   price,
-}: CheckoutCoffeeCardProps) {
+}: ICheckoutCoffeeCardProps) {
   const { updateProductQuantity, checkoutProducts } = useContext(AppContext);
   const { t, i18n } = useTranslation();
 
-  const [formatedCoffeePrice, setformatedCoffeePrice] = useState<
+  const [formattedCoffeePrice, setFormattedCoffeePrice] = useState<
     string | null
   >(null);
 
@@ -49,15 +49,15 @@ export function CheckoutCoffeeCard({
     if (i18n.language === "en") {
       convertToDollars(realPrice)
         .then((coffeePriceInDollar) =>
-          setformatedCoffeePrice(coffeePriceInDollar),
+          setFormattedCoffeePrice(coffeePriceInDollar),
         )
         .catch(() => {
           console.error("Error while trying to convert coffee price");
         });
     } else {
-      setformatedCoffeePrice(`${realPrice}`.replace(".", ","));
+      setFormattedCoffeePrice(`${realPrice}`.replace(".", ","));
     }
-  }, [formatedCoffeePrice, price, productData.quantity, i18n.language]);
+  }, [formattedCoffeePrice, price, productData.quantity, i18n.language]);
 
   return (
     <div className="w-full px-1 py-2 md:max-w-full">
@@ -123,7 +123,7 @@ export function CheckoutCoffeeCard({
           </span>
           {i18n.language === "pt"
             ? `${(price * productData.quantity).toFixed(2)}`.replace(".", ",")
-            : formatedCoffeePrice}
+            : formattedCoffeePrice}
         </span>
       </div>
     </div>
