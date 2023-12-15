@@ -12,7 +12,7 @@ import irlandes from "../assets/irlandes.png";
 import latte from "../assets/latte.png";
 import macchiato from "../assets/macchiato.png";
 import mochaccino from "../assets/mochaccino.png";
-import { ICoffeeSchema } from "../types/coffeType";
+import { ICoffeeSchema } from "../types/coffeeType";
 
 export const coffeeList: ICoffeeSchema[] = [
   {
