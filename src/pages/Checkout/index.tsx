@@ -75,12 +75,15 @@ export function Checkout() {
             content="Discover Coffee Delivery, our fictitious coffee platform! Get to know our coffees and fall in love with our selection. Try buying coffee with us!"
           />
           <meta name="robots" content="noindex,nofollow"></meta>
-          <link rel="canonical" href="https://www.tobeimplemented.com" />
+          <link
+            rel="canonical"
+            href="https://coffee-delivery-eddyyxxyy.vercel.app/"
+          />
         </Helmet>
       </HelmetProvider>
 
       <main className="flex-grow overflow-y-auto px-4 pb-24 font-sans-r md:px-14 lg:px-36">
-        <form className="mt-8 grid grid-cols-1 gap-4 lg:mt-10 lg:grid-cols-checkoutLg lg:gap-8">
+        <form className="mx-auto mt-8 grid max-w-screen-xl grid-cols-1 gap-4 lg:mt-10 lg:grid-cols-checkoutLg lg:gap-8">
           <div>
             <h2 className="font-sans-b text-lg font-bold text-base-subtitle">
               {t("completeYourOrder")}

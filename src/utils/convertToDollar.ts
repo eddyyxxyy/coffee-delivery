@@ -1,4 +1,4 @@
-interface APIData {
+interface IAPIData {
   rates: {
     USD: number;
   };
@@ -9,7 +9,7 @@ async function getDollarQuotation(): Promise<number | null> {
     const response = await fetch(
       "https://api.exchangerate-api.com/v4/latest/BRL",
     );
-    const data = (await response.json()) as APIData;
+    const data = (await response.json()) as IAPIData;
 
     return data.rates.USD;
   } catch {

@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useState } from "react";
 
-import { CoffeeCardProps } from "../components/CoffeeCard";
+import { ICoffeeCardProps } from "../components/CoffeeCard";
 
 interface IAppContextData {
   checkoutProducts: Map<
@@ -9,7 +9,7 @@ interface IAppContextData {
   >;
   quantity: number;
   orderInfo: IOrderInfo | null;
-  handleAddToCart: (product: CoffeeCardProps, quantity: number) => void;
+  handleAddToCart: (product: ICoffeeCardProps, quantity: number) => void;
   updateProductQuantity: (productId: string, newQuantity: number) => void;
   handleConfirmOrder: (orderInfo: IOrderInfo) => void;
 }
@@ -57,7 +57,7 @@ export function AppContextProvider({ children }: IAppContextProviderProps) {
 
   const [orderInfo, setOrderInfo] = useState<null | IOrderInfo>(null);
 
-  function handleAddToCart(product: CoffeeCardProps, quantity: number): void {
+  function handleAddToCart(product: ICoffeeCardProps, quantity: number): void {
     setCheckoutProducts((prevCheckoutProducts) => {
       const newCheckoutProducts = new Map(prevCheckoutProducts);
 

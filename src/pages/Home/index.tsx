@@ -2,22 +2,9 @@ import { Coffee, Package, ShoppingCart, Timer } from "@phosphor-icons/react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 
-import arabe from "../../assets/arabe.png";
-import cafeComLeite from "../../assets/cafe-com-leite.png";
-import capuccino from "../../assets/capuccino.png";
-import hotChocolate from "../../assets/chocolate-quente.png";
-import cubano from "../../assets/cubano.png";
-import expresso from "../../assets/expresso.png";
-import expressoAmericano from "../../assets/expresso-americano.png";
-import expressoCremoso from "../../assets/expresso-cremoso.png";
-import expressoGelado from "../../assets/expresso-gelado.png";
-import havaiano from "../../assets/havaiano.png";
-import irlandes from "../../assets/irlandes.png";
-import latte from "../../assets/latte.png";
-import macchiato from "../../assets/macchiato.png";
-import mochaccino from "../../assets/mochaccino.png";
-import specialCoffeDisplayHomepage from "../../assets/special-coffe-display-homepage.png";
+import specialCoffeeDisplayHomepage from "../../assets/special-coffee-display-homepage.png";
 import { CoffeeCard } from "../../components/CoffeeCard";
+import { coffeeList } from "../../data/coffees";
 
 export function Home() {
   const { t } = useTranslation();
@@ -36,12 +23,15 @@ export function Home() {
             property="og:description"
             content="Discover Coffee Delivery, our fictitious coffee platform! Get to know our coffees and fall in love with our selection. Try buying coffee with us!"
           />
-          <link rel="canonical" href="https://www.tobeimplemented.com" />
+          <link
+            rel="canonical"
+            href="https://coffee-delivery-eddyyxxyy.vercel.app/"
+          />
         </Helmet>
       </HelmetProvider>
 
       <main className="flex-grow overflow-y-auto px-6 pb-24 font-sans-r md:px-8 lg:px-16">
-        <div className="mt-8 grid grid-cols-1 items-center justify-center gap-12 md:mt-16 md:grid-cols-2 md:gap-12 lg:mt-24 lg:gap-14">
+        <div className="mx-auto mt-8 grid max-w-screen-xl grid-cols-1 items-center justify-center gap-12 md:mt-16 md:grid-cols-2 md:gap-12 lg:mt-24 lg:gap-14 ">
           <div className="flex flex-col items-center gap-4 md:items-start">
             <h1 className="font-sans-b text-3xl font-extrabold leading-[130%] text-base-title md:text-4xl lg:text-5xl">
               {t("homeHeading")}
@@ -88,155 +78,25 @@ export function Home() {
           </div>
           <div className="flex items-center justify-center">
             <div className="max-w-lg">
-              <img src={specialCoffeDisplayHomepage} alt="" />
+              <img src={specialCoffeeDisplayHomepage} alt="" />
             </div>
           </div>
         </div>
-        <div className="mt-8 md:mt-20 lg:mt-28">
+        <div className="mx-auto mt-8 grid max-w-screen-xl md:mt-20 lg:mt-28">
           <h2 className="text-center font-sans-b text-[2rem] text-base-subtitle md:text-start">
             {t("coffeeListHeadline")}
           </h2>
           <ul className="mt-12 grid grid-cols-1 items-center justify-center gap-x-8 gap-y-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            <li className="flex items-center justify-center">
-              <CoffeeCard
-                id="traditionalExpresso"
-                imgSrc={expresso}
-                coffeeName={t("traditionalExpressoName")}
-                coffeeDesc={t("traditionalExpressoDesc")}
-                coffeeTags={[t("traditionalTag")]}
-                coffeePrice={9.99}
-              />
-            </li>
-            <li className="flex items-center justify-center">
-              <CoffeeCard
-                id="americanExpresso"
-                imgSrc={expressoAmericano}
-                coffeeName={t("americanExpressoName")}
-                coffeeDesc={t("americanExpressoDesc")}
-                coffeeTags={[t("traditionalTag")]}
-                coffeePrice={9.99}
-              />
-            </li>
-            <li className="flex items-center justify-center">
-              <CoffeeCard
-                id="creamyExpresso"
-                imgSrc={expressoCremoso}
-                coffeeName={t("creamyExpressoName")}
-                coffeeDesc={t("creamyExpressoDesc")}
-                coffeeTags={[t("traditionalTag")]}
-                coffeePrice={9.99}
-              />
-            </li>
-            <li className="flex items-center justify-center">
-              <CoffeeCard
-                id="coldExpresso"
-                imgSrc={expressoGelado}
-                coffeeName={t("coldExpressoName")}
-                coffeeDesc={t("coldExpressoDesc")}
-                coffeeTags={[t("traditionalTag"), t("icedTag")]}
-                coffeePrice={9.99}
-              />
-            </li>
-            <li className="flex items-center justify-center">
-              <CoffeeCard
-                id="coffeeAndMilk"
-                imgSrc={cafeComLeite}
-                coffeeName={t("coffeeAndMilkName")}
-                coffeeDesc={t("coffeeAndMilkDesc")}
-                coffeeTags={[t("traditionalTag"), t("withMilkTag")]}
-                coffeePrice={9.99}
-              />
-            </li>
-            <li className="flex items-center justify-center">
-              <CoffeeCard
-                id="latte"
-                imgSrc={latte}
-                coffeeName={t("latteName")}
-                coffeeDesc={t("latteDesc")}
-                coffeeTags={[t("traditionalTag"), t("withMilkTag")]}
-                coffeePrice={9.99}
-              />
-            </li>
-            <li className="flex items-center justify-center">
-              <CoffeeCard
-                id="capuccino"
-                imgSrc={capuccino}
-                coffeeName={t("capuccinoName")}
-                coffeeDesc={t("capuccinoDesc")}
-                coffeeTags={[t("traditionalTag"), t("withMilkTag")]}
-                coffeePrice={9.99}
-              />
-            </li>
-            <li className="flex items-center justify-center">
-              <CoffeeCard
-                id="macchiato"
-                imgSrc={macchiato}
-                coffeeName={t("macchiatoName")}
-                coffeeDesc={t("macchiatoDesc")}
-                coffeeTags={[t("traditionalTag"), t("withMilkTag")]}
-                coffeePrice={9.99}
-              />
-            </li>
-            <li className="flex items-center justify-center">
-              <CoffeeCard
-                id="mochaccino"
-                imgSrc={mochaccino}
-                coffeeName={t("mochaccinoName")}
-                coffeeDesc={t("mochaccinoDesc")}
-                coffeeTags={[t("traditionalTag"), t("withMilkTag")]}
-                coffeePrice={9.99}
-              />
-            </li>
-            <li className="flex items-center justify-center">
-              <CoffeeCard
-                id="hotChocolate"
-                imgSrc={hotChocolate}
-                coffeeName={t("hotChocolateName")}
-                coffeeDesc={t("hotChocolateDesc")}
-                coffeeTags={[t("traditionalTag"), t("withMilkTag")]}
-                coffeePrice={9.99}
-              />
-            </li>
-            <li className="flex items-center justify-center">
-              <CoffeeCard
-                id="cuban"
-                imgSrc={cubano}
-                coffeeName={t("cubanName")}
-                coffeeDesc={t("cubanDesc")}
-                coffeeTags={[t("specialTag"), t("alcoholicTag"), t("icedTag")]}
-                coffeePrice={9.99}
-              />
-            </li>
-            <li className="flex items-center justify-center">
-              <CoffeeCard
-                id="hawaiian"
-                imgSrc={havaiano}
-                coffeeName={t("hawaiianName")}
-                coffeeDesc={t("hawaiianDesc")}
-                coffeeTags={[t("specialTag")]}
-                coffeePrice={9.99}
-              />
-            </li>
-            <li className="flex items-center justify-center">
-              <CoffeeCard
-                id="arab"
-                imgSrc={arabe}
-                coffeeName={t("arabName")}
-                coffeeDesc={t("arabDesc")}
-                coffeeTags={[t("specialTag")]}
-                coffeePrice={9.99}
-              />
-            </li>
-            <li className="flex items-center justify-center">
-              <CoffeeCard
-                id="irish"
-                imgSrc={irlandes}
-                coffeeName={t("irishName")}
-                coffeeDesc={t("irishDesc")}
-                coffeeTags={[t("specialTag"), t("alcoholicTag")]}
-                coffeePrice={9.99}
-              />
-            </li>
+            {coffeeList.map((coffee) => (
+              <li className="flex items-center justify-center" key={coffee.id}>
+                <CoffeeCard
+                  id={coffee.id}
+                  imgSrc={coffee.imgSrc}
+                  coffeeTags={coffee.coffeeTags}
+                  coffeePrice={coffee.coffeePrice}
+                />
+              </li>
+            ))}
           </ul>
         </div>
       </main>
