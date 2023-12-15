@@ -1,8 +1,6 @@
-export interface coffeType {
+export interface ICoffeeSchema {
   id: string;
   imgSrc: string;
-  coffeeName: string;
-  coffeeDesc: string;
   coffeeTags: string[];
   coffeePrice: number;
 }

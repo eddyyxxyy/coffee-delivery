@@ -7,11 +7,9 @@ import { convertToDollars } from "../../utils/convertToDollar";
 import { AddedToCartNotification } from "../AddedToCartNotification";
 import { IconButton } from "../IconButton";
 
-export interface CoffeeCardProps {
+export interface ICoffeeCardProps {
   id: string;
   imgSrc: string;
-  coffeeName: string;
-  coffeeDesc: string;
   coffeePrice: number;
   coffeeTags: string[];
 }
@@ -19,17 +17,15 @@ export interface CoffeeCardProps {
 export function CoffeeCard({
   id,
   imgSrc,
-  coffeeName,
-  coffeeDesc,
-  coffeePrice,
   coffeeTags,
-}: CoffeeCardProps) {
+  coffeePrice,
+}: ICoffeeCardProps) {
   const { t, i18n } = useTranslation();
   const { handleAddToCart } = useContext(AppContext);
 
   const [productQuantity, setProductQuantity] = useState<number>(1);
 
-  const [formatedCoffeePrice, setformatedCoffeePrice] = useState<
+  const [formattedCoffeePrice, setFormattedCoffeePrice] = useState<
     string | null
   >(null);
 
@@ -50,7 +46,12 @@ export function CoffeeCard({
 
   function handleAddedToCartWithNotification() {
     handleAddToCart(
-      { id, imgSrc, coffeeName, coffeeTags, coffeeDesc, coffeePrice },
+      {
+        id,
+        imgSrc,
+        coffeeTags,
+        coffeePrice,
+      },
       productQuantity,
     );
     if (showAddedToCartNotification === false) {
@@ -65,15 +66,15 @@ export function CoffeeCard({
     if (i18n.language === "en") {
       convertToDollars(coffeePrice)
         .then((coffeePriceInDollar) =>
-          setformatedCoffeePrice(coffeePriceInDollar),
+          setFormattedCoffeePrice(coffeePriceInDollar),
         )
         .catch(() => {
           console.error("Error while trying to convert coffee price");
         });
     } else {
-      setformatedCoffeePrice(`${coffeePrice}`.replace(".", ","));
+      setFormattedCoffeePrice(`${coffeePrice}`.replace(".", ","));
     }
-  }, [formatedCoffeePrice, coffeePrice, i18n.language]);
+  }, [formattedCoffeePrice, coffeePrice, i18n.language]);
 
   return (
     <>
@@ -89,16 +90,16 @@ export function CoffeeCard({
                 key={index}
                 className="mt-3 w-fit items-center justify-center rounded-full bg-product-yellow-light px-2 py-1 text-[0.625rem] font-bold uppercase text-product-yellow-dark"
               >
-                <span>{coffeeTag}</span>
+                <span>{t(`${coffeeTag}Tag`)}</span>
               </div>
             ))}
           </div>
         </div>
         <div className="text-center">
           <h3 className="font-sans-b text-2xl font-bold text-base-subtitle">
-            {coffeeName}
+            {t(`${id}Name`)}
           </h3>
-          <p className="mb-8 mt-2 text-base-label">{coffeeDesc}</p>
+          <p className="mb-8 mt-2 text-base-label">{t(`${id}Desc`)}</p>
           <div className="flex flex-wrap items-center justify-evenly gap-6">
             <span className="font-sans-b text-2xl font-bold text-base-text">
               <span className="font-sans-r text-sm font-normal">
@@ -106,7 +107,7 @@ export function CoffeeCard({
               </span>
               {i18n.language === "pt"
                 ? `${coffeePrice}`.replace(".", ",")
-                : formatedCoffeePrice}
+                : formattedCoffeePrice}
             </span>
             <div className="flex items-center justify-center gap-2">
               <div className="flex items-center justify-evenly gap-1 rounded-md bg-base-button p-2 text-base">

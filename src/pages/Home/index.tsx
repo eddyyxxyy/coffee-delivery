@@ -2,9 +2,9 @@ import { Coffee, Package, ShoppingCart, Timer } from "@phosphor-icons/react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 
-import specialCoffeDisplayHomepage from "../../assets/special-coffe-display-homepage.png";
+import specialCoffeeDisplayHomepage from "../../assets/special-coffee-display-homepage.png";
 import { CoffeeCard } from "../../components/CoffeeCard";
-import { coffeeList } from "../../data/coffes";
+import { coffeeList } from "../../data/coffees";
 
 export function Home() {
   const { t } = useTranslation();
@@ -75,7 +75,7 @@ export function Home() {
           </div>
           <div className="flex items-center justify-center">
             <div className="max-w-lg">
-              <img src={specialCoffeDisplayHomepage} alt="" />
+              <img src={specialCoffeeDisplayHomepage} alt="" />
             </div>
           </div>
         </div>
@@ -84,15 +84,13 @@ export function Home() {
             {t("coffeeListHeadline")}
           </h2>
           <ul className="mt-12 grid grid-cols-1 items-center justify-center gap-x-8 gap-y-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {coffeeList.map((coffe) => (
-              <li className="flex items-center justify-center" key={coffe.id}>
+            {coffeeList.map((coffee) => (
+              <li className="flex items-center justify-center" key={coffee.id}>
                 <CoffeeCard
-                  id={coffe.id}
-                  imgSrc={coffe.imgSrc}
-                  coffeeName={coffe.coffeeName}
-                  coffeeDesc={coffe.coffeeDesc}
-                  coffeeTags={coffe.coffeeTags}
-                  coffeePrice={coffe.coffeePrice}
+                  id={coffee.id}
+                  imgSrc={coffee.imgSrc}
+                  coffeeTags={coffee.coffeeTags}
+                  coffeePrice={coffee.coffeePrice}
                 />
               </li>
             ))}
