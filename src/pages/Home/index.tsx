@@ -23,7 +23,10 @@ export function Home() {
             property="og:description"
             content="Discover Coffee Delivery, our fictitious coffee platform! Get to know our coffees and fall in love with our selection. Try buying coffee with us!"
           />
-          <link rel="canonical" href="https://www.tobeimplemented.com" />
+          <link
+            rel="canonical"
+            href="http://coffee-delivery-eddyyxxyy.vercel.app/"
+          />
         </Helmet>
       </HelmetProvider>
 

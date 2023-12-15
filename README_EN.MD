@@ -4,7 +4,7 @@
 
 Coffee Delivery is a web application for managing a shopping cart for a fictitious coffee shop, with the ability to have multiple languages attached to the same interface, initially counting on English and Portuguese.
 
-**Access: [_Coffee Delivery App_](https://coffee-delivery-lac.vercel.app/).**
+**Access: [_Coffee Delivery App_](http://coffee-delivery-eddyyxxyy.vercel.app/).**
 
 > This project is one of the challenges of the React track of Ignite. That is, only a style guide is provided for the application's visual and its concept. All the code, folder structure, dependencies, and programming techniques used are derived from the programmer, in this case, me.
 

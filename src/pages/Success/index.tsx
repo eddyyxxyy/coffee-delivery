@@ -33,7 +33,10 @@ export function Success() {
             content="Discover Coffee Delivery, our fictitious coffee platform! Get to know our coffees and fall in love with our selection. Try buying coffee with us!"
           />
           <meta name="robots" content="noindex,nofollow"></meta>
-          <link rel="canonical" href="https://www.tobeimplemented.com" />
+          <link
+            rel="canonical"
+            href="http://coffee-delivery-eddyyxxyy.vercel.app/"
+          />
         </Helmet>
       </HelmetProvider>
 
