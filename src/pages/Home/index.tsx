@@ -25,7 +25,7 @@ export function Home() {
           />
           <link
             rel="canonical"
-            href="http://coffee-delivery-eddyyxxyy.vercel.app/"
+            href="https://coffee-delivery-eddyyxxyy.vercel.app/"
           />
         </Helmet>
       </HelmetProvider>
